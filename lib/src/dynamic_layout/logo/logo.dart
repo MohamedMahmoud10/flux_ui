@@ -36,7 +36,8 @@ class LogoIcon extends StatelessWidget {
         height: boxSize,
         decoration: BoxDecoration(
           color: config.iconBackground ??
-              Theme.of(context)
+              Theme
+                  .of(context)
                   .colorScheme
                   .surface
                   .withValueOpacity(config.iconOpacity),
@@ -44,29 +45,32 @@ class LogoIcon extends StatelessWidget {
         ),
         child: menuIcon != null
             ? DeferredWidget(
-                defer_icon.loadLibrary,
-                () => Icon(
-                  defer_icon.iconPicker(
-                    menuIcon!.name!,
-                    menuIcon!.fontFamily ?? 'CupertinoIcons',
-                  ),
-                  color: config.iconColor ??
-                      Theme.of(context)
-                          .colorScheme
-                          .secondary
-                          .withValueOpacity(0.9),
-                  size: config.iconSize,
+          defer_icon.loadLibrary,
+              () =>
+              Icon(
+                defer_icon.iconPicker(
+                  menuIcon!.name!,
+                  menuIcon!.fontFamily ?? 'CupertinoIcons',
                 ),
-              )
-            : Icon(
-                Icons.blur_on,
                 color: config.iconColor ??
-                    Theme.of(context)
+                    Theme
+                        .of(context)
                         .colorScheme
                         .secondary
                         .withValueOpacity(0.9),
                 size: config.iconSize,
               ),
+        )
+            : Icon(
+          Icons.blur_on,
+          color: config.iconColor ??
+              Theme
+                  .of(context)
+                  .colorScheme
+                  .secondary
+                  .withValueOpacity(0.9),
+          size: config.iconSize,
+        ),
       ),
     );
     if (showNumber) {
@@ -142,6 +146,7 @@ class LogoWidget extends StatelessWidget with MultiSiteMixin {
   final int totalCart;
   final int notificationCount;
   final MultiSiteArgument? multiSiteArgument;
+  final String? imageUrl;
 
   const LogoWidget({
     super.key,
@@ -150,6 +155,7 @@ class LogoWidget extends StatelessWidget with MultiSiteMixin {
     required this.onCheckout,
     required this.onTapDrawerMenu,
     required this.onTapNotifications,
+    this.imageUrl,
     this.logo,
     this.totalCart = 0,
     this.notificationCount = 0,
@@ -165,7 +171,7 @@ class LogoWidget extends StatelessWidget with MultiSiteMixin {
         return SizedBox(
           height: logoSize - 10,
           child: FluxImage(
-            imageUrl: image,
+            imageUrl: imageUrl ?? image,
             height: logoSize,
             fit: BoxFit.contain,
           ),
@@ -194,7 +200,8 @@ class LogoWidget extends StatelessWidget with MultiSiteMixin {
       constraints: const BoxConstraints(minHeight: kToolbarHeight),
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       color: config.color ??
-          Theme.of(context)
+          Theme
+              .of(context)
               .colorScheme
               .surface
               .withValueOpacity(config.opacity),
@@ -222,7 +229,10 @@ class LogoWidget extends StatelessWidget with MultiSiteMixin {
                         textConfig.text,
                         style: TextStyle(
                           fontSize: textConfig.fontSize,
-                          color: Theme.of(context).colorScheme.onSurface,
+                          color: Theme
+                              .of(context)
+                              .colorScheme
+                              .onSurface,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -284,21 +294,22 @@ class LogoWidget extends StatelessWidget with MultiSiteMixin {
               child: Padding(
                 padding: const EdgeInsetsDirectional.only(start: 8),
                 child: GestureDetector(
-                  onTap: () => showMultiSiteSelection(
-                    context,
-                    config: multiSiteArgument!.multiSiteConfig,
-                    multiSiteConfigs: multiSiteArgument!.multiSiteConfigs,
-                    onChanged: multiSiteArgument!.onSiteChanged,
-                    onError: multiSiteArgument!.onErrorChangeSite,
-                  ),
+                  onTap: () =>
+                      showMultiSiteSelection(
+                        context,
+                        config: multiSiteArgument!.multiSiteConfig,
+                        multiSiteConfigs: multiSiteArgument!.multiSiteConfigs,
+                        onChanged: multiSiteArgument!.onSiteChanged,
+                        onError: multiSiteArgument!.onErrorChangeSite,
+                      ),
                   child: multiSiteArgument!.multiSiteIcon?.isEmpty ?? true
                       ? const Icon(CupertinoIcons.globe)
                       : FluxImage(
-                          imageUrl: multiSiteArgument!.multiSiteIcon!,
-                          width: 25,
-                          height: 20,
-                          fit: BoxFit.cover,
-                        ),
+                    imageUrl: multiSiteArgument!.multiSiteIcon!,
+                    width: 25,
+                    height: 20,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
