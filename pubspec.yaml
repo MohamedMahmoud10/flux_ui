@@ -21,26 +21,26 @@ dependencies:
   responsive_builder: 0.7.1
   universal_platform: ^1.1.0
   lottie: ^3.1.2
-  extended_image: 9.0.7
-  share_plus: 10.1.1
+  extended_image: ^10.0.1
+  share_plus: ^12.0.1
   flutter_svg: ^2.0.13
   animated_text_kit: ^4.2.2
   html: ^0.15.4
-  url_launcher: 6.3.0
+  url_launcher: ^6.3.2
   collection: ^1.18.0
-  freezed_annotation: 2.4.4
+  freezed_annotation: ^3.1.0
   html_unescape: 2.0.0
   visibility_detector: 0.4.0+2
-  smooth_page_indicator: 1.2.0+3
-  carousel_slider_plus: 7.0.1
+  smooth_page_indicator: ^2.0.1
+  carousel_slider_plus: ^7.1.1
 
     # HTML render
-  flutter_widget_from_html_core: ^0.15.2
-  fwfh_svg: 0.8.3
-  fwfh_cached_network_image: 0.14.3
-  fwfh_url_launcher: 0.9.1
-  fwfh_chewie: 0.14.8
-  fwfh_webview: 0.15.2
+  flutter_widget_from_html_core: ^0.17.0
+  fwfh_svg: ^0.16.1
+  fwfh_cached_network_image: ^0.16.1
+  fwfh_url_launcher: ^0.16.1
+  fwfh_chewie: ^0.16.1
+  fwfh_webview: ^0.15.6
   google_fonts: ^6.2.1
   build_runner: ^2.4.13
   json_annotation: ^4.9.0
@@ -48,11 +48,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^6.0.0
   mockito: ^5.4.4
-  bloc_test: ^9.1.7
+  bloc_test: ^10.0.0
   test: ^1.25.7
-  freezed: 2.5.3
+  freezed: ^3.2.3
   json_serializable: ^6.8.0
 
 # For information on the generic Dart part of this file, see the
